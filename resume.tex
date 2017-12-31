@@ -1,0 +1,193 @@
+%-------------------------
+% Resume in Latex
+% Author : Aaron Batilo
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[pdftex]{hyperref}
+\usepackage{fancyhdr}
+
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{helvet}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[2]{
+  \item\small{
+    \textbf{#1}{: #2 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeItemNoBold}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[3]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1} \\
+      \textit{\small#2} & \textit{\small #3} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+
+\renewcommand{\labelitemii}{$\circ$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING-----------------
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+  \textbf{\href{https://aaronbatilo.io/}{\Large Aaron Batilo}} & (720) 207-7973 \\
+  \href{https://aaronbatilo.io/}{https://www.aaronbatilo.io} &
+  \href{mailto:AaronBatilo@gmail.com}{AaronBatilo@gmail.com} \\
+\end{tabular*}
+
+
+%-----------EXPERIENCE-----------------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {FullContact Inc}
+      {Software Engineer II}{July 2017 - Present}
+      \resumeItemListStart
+        \resumeItemNoBold {Migrated microservices architecture from Amazon ASGs
+        to Docker/Kubernetes}
+        \resumeItemNoBold {Created a classifier for determining the
+        organization/department for a job title}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Josh.ai}
+      {Software Engineer}{June 2015 - July 2017}
+      \resumeItemListStart
+        \resumeItemNoBold{Created Python/Flask full stack solution for
+        interfacing with home automation system, deployed to Heroku}
+        \resumeItemNoBold{Created Android client for communicating with home
+        automation system over a WebSocket}
+        \resumeItemNoBold{Wrote C++ for LAN based device integrations and
+        control}
+        \resumeItemNoBold{Ported C++ codebase from being macOS specific to run
+        on generic Linux}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Northrop Grumman Corporation}
+      {DevOps Engineer (former TS/SCI)}{June 2014 - June 2015}
+      \resumeItemListStart
+        \resumeItemNoBold{Wrote Python/Ruby scripts for system monitoring
+        across 40+ virtualized hosts on a secured network}
+        \resumeItemNoBold{Configured Apache reverse proxy for backend user PKI
+        authentication}
+        \resumeItemNoBold{Automated silent installation of COTS products for
+        live deployments saving hours of manual labor}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {University of Colorado, Colorado Springs}
+      {Student Web Developer/Research Assistant/Teaching Assistant}{January
+      2013 - December 2015}
+      \resumeItemListStart
+        \resumeItemNoBold{Wrote perl/MSSQL/HTML5 full stack site to render
+        class schedule}
+        \resumeItemNoBold{Ported various websites from Serena CMS to Ingeniux
+        CMS}
+        \resumeItemNoBold{Researched reverse proxy implementations for NSF
+        funded CS/Psychology joint research involving phishing}
+        \resumeItemNoBold{TA for Software Engineering I. Graded assignments,
+        held office hours for Ruby on Rails projects and assignments}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Northrop Grumman Corporation}
+      {Software Engineer Intern}{Summers of (2011 - 2013)}
+      \resumeItemListStart
+        \resumeItemNoBold{(2013) Wrote Java/JavaFX plug-in for real time
+        histogram and scatter plot for Eclipse RCP intelligence tool}
+        \resumeItemNoBold{(2012) Integrated nmap and metasploit into C\# tool
+        for one click exploitation of virtualized systems}
+        \resumeItemNoBold{(2012) Created network visualization of local virtual
+        network which included OS/network information}
+        \resumeItemNoBold{(2011) Created C\# tool to traverse Twitter user
+        graphs for calculating centrality of users}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------------
+\section{Projects}
+  \resumeSubHeadingListStart
+    \resumeSubItem{Multiple Choice AI}
+      {Java/Dropwizard service that uses semantic word vectors to answer
+      multiple choice questions}
+    \resumeSubItem{SummaryBox}
+      {Java/Dropwizard/OpenNLP service summarizes raw text into its most
+      important topics}
+    \resumeSubItem{ColoradoGeekJobs}
+      {Mongo/Express/React/Node job board for technology jobs in Colorado}
+    \resumeSubItem{Sudoku Solver}
+      {C program that uses BFS, DFS, and Dijkstra's algorithm to solve sudoku
+      puzzles}
+    \resumeSubItem{CircleTap}
+      {Android game build with Unity which used Google Play leader boards and
+      Google AdMob}
+    \resumeSubItem{Rank tracker}
+      {Python scraper that sent SMS updates for a local 8-ball league}
+    \resumeSubItem{Macro engine}
+      {C\# application that simplified making Win32 API calls to automate
+      keyboard and mouse usage. Scripts could be transpiled into independent
+      C\# applications for quick distribution}
+  \resumeSubHeadingListEnd
+
+%--------PROGRAMMING SKILLS------------
+\section{Other Technology}
+  \resumeSubHeadingListStart
+    \resumeItemNoBold{AWS, Cassandra, Heroku, CircleCI, Jenkins, Kafka, Travis,
+    MySQL, PostgreSQL, Redis}
+  \resumeSubHeadingListEnd
+
+%-------------------------------------------
+\end{document}
