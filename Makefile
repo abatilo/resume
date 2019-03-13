@@ -1,7 +1,7 @@
 all: clean png
 
 build:
-	docker build -t latex -f Dockerfile .
+	docker build -t latex -f Dockerfile.dev .
 
 pdf: build
 	docker run -v /home/aaron/abatilo/resume:/resume -w /resume -it latex bash -c 'pdflatex resume.tex'

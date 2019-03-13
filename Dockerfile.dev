@@ -1,4 +1,4 @@
-FROM ubuntu:18.04 as builder
+FROM ubuntu:18.04
 
 RUN ln -snf /usr/share/zoneinfo/Etc/UTC /etc/localtime \
     && echo "Etc/UTC" > /etc/timezone
@@ -11,13 +11,3 @@ RUN apt-get update \
       imagemagick=8:6.9.7.4+dfsg-16ubuntu6.4 \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
-
-WORKDIR /resume
-COPY . /resume/
-RUN pdflatex resume.tex
-
-FROM nginx:1.15.7-alpine
-COPY --from=builder /resume/resume.pdf /usr/share/nginx/html
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-
-EXPOSE 80
