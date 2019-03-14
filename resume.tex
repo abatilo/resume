@@ -81,8 +81,8 @@
 
 %----------HEADING-----------------
 \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
-  \textbf{\href{https://aaronbatilo.io/}{\Large Aaron Batilo}} & (720) 207-7973 \\
-  \href{https://aaronbatilo.io/}{https://www.aaronbatilo.io} &
+  \textbf{\href{https://aaronbatilo.dev/}{\Large Aaron Batilo}} & (720) 207-7973 \\
+  \href{https://aaronbatilo.dev/}{https://www.aaronbatilo.dev} &
   \href{mailto:AaronBatilo@gmail.com}{AaronBatilo@gmail.com} \\
 \end{tabular*}
 
@@ -93,15 +93,16 @@
 
     \resumeSubheading
       {Conga}
-      {Technical Lead / Manager / Senior Software Engineer - Machine Learning / Data Team}{January 2018 - Present}
+      {Technical Lead / Senior Software Engineer - Machine Learning / Data Team}{January 2018 - Present}
       \resumeItemListStart
-        \resumeItemNoBold {Leading team of 3 developers and 2 data scientists to create full-stack Conga AI product}
-        \resumeItemNoBold {Leading development of Python, Scala, and Java based microservices for serving ML inferences on contracts}
-        \resumeItemNoBold {Lead technical transition to use Docker + Kubernetes from AWS Lambda architecture for deployment}
+        \resumeItemNoBold {Leading team of 5 developers and 2 data scientists to create full-stack Conga AI product}
+        \resumeItemNoBold {Leading development of polyglot containerized microservices for serving ML inferences on contracts}
+        \resumeItemNoBold {Teaching engineers throughout the company about Docker and Cloud Native concepts}
+        \resumeItemNoBold {Taught leads on other product teams about serving a TypeScript + GraphQL application}
+        \resumeItemNoBold {Lead technical transition to use Docker + Kubernetes from AWS Lambda architecture}
+        \resumeItemNoBold {Converted bash based deployment to automated TeamCity + Spinnaker deployment, saving hours per deployment}
         \resumeItemNoBold {Administrate TeamCity server and teach the concepts of CI / CD, increasing productivity across all of engineering}
         \resumeItemNoBold {Designed and implemented AWS EMR / Apache Spark and AWS Lambda based machine learning pipeline}
-        \resumeItemNoBold {Configured linting, static code analysis, and test code coverage reporting for Python, Scala, and React code bases}
-        \resumeItemNoBold {Automated entire infrastructure deployment from taking days down to minutes}
       \resumeItemListEnd
 
     \resumeSubheading
@@ -173,6 +174,8 @@
 %-----------PROJECTS-----------------
 \section{Projects}
   \resumeSubHeadingListStart
+  \resumeSubItem{sanic-healthchecks}
+      {Makes it easy to add a healtchecks server, independent of your main Sanic application. On PyPI}
     \resumeSubItem{typed-json-dataclass}
       {Automatically type validate and json SerDe your @dataclasses in Python3.7+. On PyPI}
     \resumeSubItem{sanic-swagger}
@@ -184,7 +187,5 @@
     \resumeSubItem{SummaryBox}
       {Java / Dropwizard / OpenNLP service summarizes raw text into its most
       important topics}
-    \resumeSubItem{ColoradoGeekJobs}
-      {Mongo / Express / React / Node job board for technology jobs in Colorado}
   \resumeSubHeadingListEnd
 \end{document}
