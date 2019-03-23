@@ -7,7 +7,7 @@ RUN apt-get update \
       texlive-fonts-recommended=2017.20180305-1 \
       texlive-plain-generic=2017.20180305-2 \
       texlive-latex-extra=2017.20180305-2 \
-      ghostscript=9.26~dfsg+0-0ubuntu0.18.04.7 \
+      ghostscript=9.26~dfsg+0-0ubuntu0.18.04.8 \
       imagemagick=8:6.9.7.4+dfsg-16ubuntu6.4 \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
