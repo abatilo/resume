@@ -1,0 +1,109 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: spinnaker
+  labels:
+    app: resume
+  name: resume
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: resume
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      name: resume
+      labels:
+        app: resume
+    spec:
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 1
+            podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                - key: app
+                  operator: In
+                  values:
+                  - resume
+              topologyKey: "kubernetes.io/hostname"
+      containers:
+        - image: registry.public.abatilo.cloud/resume
+          name: resume
+          ports:
+            - containerPort: 80
+              name: http
+              protocol: TCP
+      imagePullSecrets:
+        - name: abatilo-registry
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: spinnaker
+  name: resume
+spec:
+  selector:
+    app: resume
+  ports:
+  - name: web
+    port: 80
+    targetPort: 80
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  namespace: spinnaker
+  name: resume
+  labels:
+    traefikSelector: abatiloservices
+    app: resume
+spec:
+  rules:
+  - host: www.aaronbatilo.dev
+    http:
+      paths:
+      - path: /resume
+        backend:
+          serviceName: resume
+          servicePort: web
+      - path: /resume.pdf
+        backend:
+          serviceName: resume
+          servicePort: web
+---
+apiVersion: autoscaling/v2beta1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: resume
+  namespace: spinnaker
+spec:
+  maxReplicas: 10
+  minReplicas: 3
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: resume
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        targetAverageUtilization: 75
+---
+apiVersion: policy/v1beta1
+kind: PodDisruptionBudget
+metadata:
+  name: resume
+  namespace: spinnaker
+spec:
+  selector:
+    matchLabels:
+      app: resume
+  maxUnavailable: 1
