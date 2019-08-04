@@ -66,6 +66,8 @@ metadata:
   labels:
     traefikSelector: abatiloservices
     app: resume
+  annotations:
+    kubernetes.io/ingress.class: traefik
 spec:
   rules:
   - host: www.aaronbatilo.dev
