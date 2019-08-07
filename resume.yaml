@@ -36,7 +36,7 @@ spec:
                   - resume
               topologyKey: "kubernetes.io/hostname"
       containers:
-        - image: registry.public.abatilo.cloud/resume
+        - image: registry.aaronbatilo.dev/resume
           name: resume
           ports:
             - containerPort: 80
