@@ -1,4 +1,6 @@
 # resume
+This repository has a CI pipeline setup for it which ensures that you can always find my
+most up to date version of my resume [here](https://www.aaronbatilo.dev/resume)
 I wanted to learn how to use LaTeX and resumes seem to be the easiest thing to
 use it for.
 
@@ -17,7 +19,6 @@ Just type:
 ```
 make png
 ```
-
 This will build the Docker image, build the pdf, and build the png all at once.
 
 ## Preview
