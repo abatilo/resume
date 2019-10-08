@@ -92,17 +92,30 @@
   \resumeSubHeadingListStart
 
     \resumeSubheading
+      {iStreamPlanet (Remote)}
+      {Technical Lead / Senior Software Engineer - Publishing and Packaging
+        (Live2VOD)}{August 2019 - Present}
+      \resumeItemListStart
+        \resumeItemNoBold {Driving company wide adoption about "cattle not pets" mentality, ephemerality and Cloud Native best practices}
+        \resumeItemNoBold {Building standardized and portable tooling and local development environments using Docker + docker-compose}
+        \resumeItemNoBold {Leading AWS account resource cleanup from monolith account
+          usage to my team's sub accounts}
+        \resumeItemNoBold {Migrated microservices from Distelli managed static EC2
+          instances to auto-scaling AWS EKS + CodeFresh}
+        \resumeItemNoBold {Created multi-account/cluster, company wide GitOps AWS EKS workflow using Terraform and GitHub Actions}
+      \resumeItemListEnd
+
+    \resumeSubheading
       {Conga}
       {Technical Lead / Senior Software Engineer - Machine Learning / Data Team}{January
         2018 - August 2019}
       \resumeItemListStart
-        \resumeItemNoBold {Leading development of polyglot containerized microservices for serving ML inferences on contracts}
-        \resumeItemNoBold {Teaching engineers throughout the company about Docker and Cloud Native concepts}
-        \resumeItemNoBold {Taught leads on other product teams about serving a TypeScript + GraphQL application}
-        \resumeItemNoBold {Lead technical transition to use Docker + Kubernetes from AWS Lambda architecture}
+        \resumeItemNoBold {Administered TeamCity server and drive adoption of CI / CD best practices across the company}
         \resumeItemNoBold {Converted bash based deployment to automated TeamCity + Spinnaker deployment, saving hours per deployment}
-        \resumeItemNoBold {Administrate TeamCity server and teach the concepts of CI / CD, increasing productivity across all of engineering}
-        \resumeItemNoBold {Designed and implemented AWS EMR / Apache Spark and AWS Lambda based machine learning pipeline}
+        \resumeItemNoBold {Lead development and launch of polyglot microservices for ML inferences on contracts (Conga AI Analyze)}
+        \resumeItemNoBold {Lead technical transition to use Docker + Kubernetes from AWS Lambda architecture}
+        \resumeItemNoBold {Taught engineers throughout the company about Docker and Cloud Native concepts}
+        \resumeItemNoBold {Taught leads on other product teams about building and serving a TypeScript + GraphQL applications}
       \resumeItemListEnd
 
     \resumeSubheading
@@ -113,7 +126,8 @@
         to Docker + Kubernetes}
         \resumeItemNoBold {Designed, trained, and deployed a text classifier for determining the
         organization and department for a job title}
-        \resumeItemNoBold {Implemented Schema.org support in data research pipeline, resulting in 4\% lift in data extracted from websites}
+        \resumeItemNoBold {Implemented Schema.org support in data scraping pipeline,
+          resulting in 14\% lift in data extracted from websites}
         \resumeItemNoBold {Improved data sanitation and data deduplication steps in high throughput, data based API}
         \resumeItemNoBold {Maintained backend for Human-In-The-Loop OCR data annotation system}
       \resumeItemListEnd
@@ -150,7 +164,7 @@
       2013 - December 2015}
       \resumeItemListStart
         \resumeItemNoBold{Wrote perl / MSSQL / HTML5 full stack site to render
-        class schedule}
+        class schedules}
         \resumeItemNoBold{Researched reverse proxy implementations for NSF
         funded CS / Psychology joint research involving phishing}
         \resumeItemNoBold{TA for Software Engineering I. Graded assignments,
@@ -174,15 +188,10 @@
 %-----------PROJECTS-----------------
 \section{Projects}
   \resumeSubHeadingListStart
-  \resumeSubItem{sanic-healthchecks}
-    {Makes it easy to add healtchecks to your Sanic application.}
-  \resumeSubItem{typed-json-dataclass}
-    {Automatically type validate and json SerDe your @dataclasses.}
-  \resumeSubItem{Multiple Choice AI}
-    {Java / Dropwizard service that uses word2vec to answer
-    multiple choice questions}
-  \resumeSubItem{SummaryBox}
-    {Java / Dropwizard / OpenNLP service summarizes raw text into its most
-    important topics}
+  \resumeSubItem{\href{https://www.readinglevel.app}{Reading Level}}
+    {Analyze your text with all of the common readability tests, all at once.
+      \href{https://www.readinglevel.app}{https://readinglevel.app}}
+  \resumeSubItem{\href{https://pypi.org/project/typed-json-dataclass/1.2.1/}{typed-json-dataclass}}
+    {Automatically type validate and json SerDe your @dataclasses. On PyPI.}
   \resumeSubHeadingListEnd
 \end{document}
