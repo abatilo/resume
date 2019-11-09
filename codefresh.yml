@@ -1,0 +1,40 @@
+version: '1.0'
+steps:
+  clone:
+    title: Clone
+    type: git-clone
+    arguments:
+      repo: 'abatilo/resume'
+      git: github
+      revision: 'master'
+  version:
+    title: Get Version
+    type: freestyle
+    arguments:
+      image: 'alpine:latest'
+      working_directory: 'resume/'
+      commands:
+        - cf_export VERSION=$(cat version.txt)
+  # build:
+  #   title: Build
+  #   type: build
+  #   arguments:
+  #     image_name: 'abatilo/resume'
+  #     tag: latest
+  #     working_directory: 'resume/.github/make/'
+  # Push:
+  #   title: Running docker image
+  #   type: freestyle
+  #   arguments:
+  #     image: '${{Build Pusher}}'
+  #     working_directory: 'resume/'
+  #     volumes:
+  #     	- /var/run/docker.sock:/var/run/docker.sock
+  #     commands:
+  #       - make push
+  # deploy:
+  # image: codefresh/cfstep-helm:2.9.0
+  # environment:
+  #   - CHART_REF=mychart
+  #   - RELEASE_NAME=mychart-prod
+  #   - KUBE_CONTEXT=kube-prod
