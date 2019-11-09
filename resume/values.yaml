@@ -6,7 +6,7 @@ image:
   pullPolicy: IfNotPresent
 
 imagePullSecrets:
-  - name: abatilo-registry
+  - name: cfcr
 
 service:
   type: ClusterIP
