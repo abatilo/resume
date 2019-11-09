@@ -33,5 +33,6 @@ steps:
       - CHART_REF=resume/resume
       - RELEASE_NAME=resume
       - KUBE_CONTEXT=chopper
+      - NAMESPACE=spinnaker
       - VALUESFILE_prod='resume/resume/values.yaml'
       - VALUE_image_tag='${{VERSION}}'
