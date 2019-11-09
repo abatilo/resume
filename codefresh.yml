@@ -33,5 +33,5 @@ steps:
       - CHART_REF=resume/resume
       - RELEASE_NAME=resume
       - KUBE_CONTEXT=chopper
-      - VALUE_image_pullPolicy=Always
+      - VALUESFILE_prod='resume/resume/values.yaml'
       - VALUE_image_tag='${{VERSION}}'

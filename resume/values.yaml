@@ -5,6 +5,9 @@ image:
   tag: invalid
   pullPolicy: IfNotPresent
 
+imagePullSecrets:
+  - name: abatilo-registry
+
 service:
   type: ClusterIP
   port: 80
