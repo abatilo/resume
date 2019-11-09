@@ -20,11 +20,6 @@ steps:
     type: build
     image_name: 'abatilo/resume'
     working_directory: 'resume'
-  push:
-    type: push
-    title: Push
-    registry: abatilo
-    candidate: ${{build}}
     tag: ${{VERSION}}
   install:
     image: 'codefresh/cfstep-helm:2.9.1'
@@ -35,4 +30,5 @@ steps:
       - KUBE_CONTEXT=chopper
       - NAMESPACE=applications
       - VALUESFILE_prod='resume/resume/values.yaml'
+      - VALUE_image_repository='r.cfcr.io/abatilo/abatilo/resume'
       - VALUE_image_tag='${{VERSION}}'
