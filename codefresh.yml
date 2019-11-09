@@ -18,18 +18,14 @@ steps:
   build:
     title: Build
     type: build
-    arguments:
-      image_name: 'abatilo/resume'
-      working_directory: 'resume'
-  login:
-    title: Get Version
-    type: freestyle
-    arguments:
-      image: 'alpine:latest'
-      working_directory: 'resume/'
-      commands:
-        - echo $REGISTRY_USER
-        - echo $REGISTRY_URL
+    image_name: 'abatilo/resume'
+    working_directory: 'resume'
+  push:
+    type: push
+    title: Push
+    registry: abatilo
+    candidate: ${{build}}
+    tag: ${{VERSION}}
   # Push:
   #   title: Running docker image
   #   type: freestyle
