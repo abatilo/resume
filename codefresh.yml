@@ -15,13 +15,21 @@ steps:
       working_directory: 'resume/'
       commands:
         - cf_export VERSION=$(cat version.txt)
-  # build:
-  #   title: Build
-  #   type: build
-  #   arguments:
-  #     image_name: 'abatilo/resume'
-  #     tag: latest
-  #     working_directory: 'resume/.github/make/'
+  build:
+    title: Build
+    type: build
+    arguments:
+      image_name: 'abatilo/resume'
+      working_directory: '.'
+  login:
+    title: Get Version
+    type: freestyle
+    arguments:
+      image: 'alpine:latest'
+      working_directory: 'resume/'
+      commands:
+        - echo $REGISTRY_USER
+        - echo $REGISTRY_URL
   # Push:
   #   title: Running docker image
   #   type: freestyle
