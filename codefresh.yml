@@ -30,7 +30,7 @@ steps:
     image: 'codefresh/cfstep-helm:2.9.1'
     title: Install
     environment:
-      - CHART_REF=resume/resumeChart
+      - CHART_REF=resume/resume
       - RELEASE_NAME=resume
       - KUBE_CONTEXT=chopper
       - VALUE_image_pullPolicy=Always

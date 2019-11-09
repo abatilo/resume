@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "resumeChart.fullname" . }}
+  name: {{ include "resume.fullname" . }}
   labels:
-{{ include "resumeChart.labels" . | indent 4 }}
+{{ include "resume.labels" . | indent 4 }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app.kubernetes.io/name: {{ include "resumeChart.name" . }}
+      app.kubernetes.io/name: {{ include "resume.name" . }}
       app.kubernetes.io/instance: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: {{ include "resumeChart.name" . }}
+        app.kubernetes.io/name: {{ include "resume.name" . }}
         app.kubernetes.io/instance: {{ .Release.Name }}
     spec:
     {{- with .Values.imagePullSecrets }}
