@@ -20,7 +20,7 @@ steps:
     type: build
     arguments:
       image_name: 'abatilo/resume'
-      working_directory: '.'
+      working_directory: 'resume'
   login:
     title: Get Version
     type: freestyle
