@@ -26,19 +26,12 @@ steps:
     registry: abatilo
     candidate: ${{build}}
     tag: ${{VERSION}}
-  # Push:
-  #   title: Running docker image
-  #   type: freestyle
-  #   arguments:
-  #     image: '${{Build Pusher}}'
-  #     working_directory: 'resume/'
-  #     volumes:
-  #     	- /var/run/docker.sock:/var/run/docker.sock
-  #     commands:
-  #       - make push
-  # deploy:
-  # image: codefresh/cfstep-helm:2.9.0
-  # environment:
-  #   - CHART_REF=mychart
-  #   - RELEASE_NAME=mychart-prod
-  #   - KUBE_CONTEXT=kube-prod
+  install:
+    image: 'codefresh/cfstep-helm:2.9.1'
+    title: Install
+    environment:
+      - CHART_REF=resumeChart
+      - RELEASE_NAME=resume
+      - KUBE_CONTEXT=chopper
+      - VALUE_image_pullPolicy=Always
+      - VALUE_image_tag='${{VERSION}}'

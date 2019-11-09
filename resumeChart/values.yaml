@@ -1,0 +1,41 @@
+replicaCount: 3
+
+image:
+  repository: registry.aaronbatilo.dev/resume
+  tag: invalid
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: true
+  annotations:
+    kubernetes.io/ingress.class: traefik
+  hosts:
+    - host: www.aaronbatilo.dev
+      paths:
+        - /resume
+        - /resume.pdf
+
+resources:
+  requests:
+    cpu: 10m
+    memory: 10Mi
+  limits:
+    cpu: 10m
+    memory: 10Mi
+
+affinity:
+  podAntiAffinity:
+    preferredDuringSchedulingIgnoredDuringExecution:
+    - weight: 1
+      podAffinityTerm:
+        labelSelector:
+          matchExpressions:
+          - key: app
+            operator: In
+            values:
+            - resume
+        topologyKey: "kubernetes.io/hostname"
