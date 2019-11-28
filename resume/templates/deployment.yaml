@@ -44,6 +44,10 @@ spec:
         - name: nginx-prometheus-exporter
           image: nginx/nginx-prometheus-exporter:0.4.2
           imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: 9113
+              protocol: TCP
           livenessProbe:
             httpGet:
               path: /
