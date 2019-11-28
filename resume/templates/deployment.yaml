@@ -15,6 +15,9 @@ spec:
       labels:
         app.kubernetes.io/name: {{ include "resume.name" . }}
         app.kubernetes.io/instance: {{ .Release.Name }}
+      annotations:
+        prometheus.io/scrape: 'true'
+        prometheus.io/port: '9113'
     spec:
     {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
@@ -28,6 +31,19 @@ spec:
             - name: http
               containerPort: 80
               protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+        - name: nginx-prometheus-exporter
+          image: nginx/nginx-prometheus-exporter:0.4.2
+          imagePullPolicy: Always
           livenessProbe:
             httpGet:
               path: /
