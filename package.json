@@ -1,0 +1,12 @@
+{
+    "name": "resume",
+    "devDependencies": {
+        "@types/node": "^10.0.0"
+    },
+    "dependencies": {
+        "@pulumi/aws": "^2.0.0",
+        "@pulumi/awsx": "^0.20.0",
+        "@pulumi/eks": "^0.19.2",
+        "@pulumi/pulumi": "^2.0.0"
+    }
+}
