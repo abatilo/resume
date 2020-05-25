@@ -24,6 +24,7 @@ const deployment = new kx.Deployment(
   appName,
   {
     spec: pod.asDeploymentSpec({
+      replicas: 2,
       strategy: { rollingUpdate: { maxUnavailable: 0 } },
     }),
   },
@@ -36,7 +37,7 @@ const pdb = new k8s.policy.v1beta1.PodDisruptionBudget(
   {
     spec: {
       maxUnavailable: 0,
-      selector: deployment.spec.selector
+      selector: deployment.spec.selector,
     },
   },
   { provider: k8sProvider }
