@@ -38,6 +38,9 @@ const service = deployment.createService();
 const pdb = new k8s.policy.v1beta1.PodDisruptionBudget(
   appName,
   {
+    metadata: {
+      namespace: deployment.metadata.namespace,
+    },
     spec: {
       maxUnavailable: 0,
       selector: deployment.spec.selector,
