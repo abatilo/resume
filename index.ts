@@ -67,8 +67,8 @@ const ingressMiddleware = new k8s.apiextensions.CustomResource(
         browserXssFilter: true,
         customFrameOptionsValue: "SAMEORIGIN",
         customResponseHeaders: {
-          "Feature-Policy":
-            "geolocation none; midi none; notifications none; push none; sync-xhr none; microphone none; camera none; magnetometer none; gyroscope none; speaker self; vibrate none; fullscreen self; payment none;",
+          "Permissions-Policy":
+            "geolocation=(); midi=(); notifications=(); push=(); sync-xhr=(); microphone=(); camera=(); magnetometer=(); gyroscope=(); speaker=(self); vibrate=(); fullscreen=(self); payment=();",
         },
       },
     },
