@@ -1,5 +1,0 @@
-name: resume
-runtime: nodejs
-description: My resume
-backend:
-  url: s3://abatilo/infra/cloud/
