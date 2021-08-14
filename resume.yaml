@@ -93,7 +93,7 @@ metadata:
 spec:
   entryPoints: ["websecure"]
   routes:
-    - match: "(Host(`www.aaronbatilo.dev`) || Host(`aaronbatilo.dev`)) && (Path(`/resume`) || Path(`/resume.pdf`))"
+    - match: "Host(`aaronbatilo.dev`, `www.aaronbatilo.dev`) && Path(`/resume`, `/resume.pdf`)"
       kind: "Rule"
       middlewares:
         - name: resume
