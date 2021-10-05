@@ -12,4 +12,4 @@ jobs:
       packages: write
       contents: read
     with:
-      name: blog
+      name: resume
