@@ -22,7 +22,7 @@ FROM golang:1.17-alpine as server
 WORKDIR /resume
 COPY main.go .
 COPY --from=builder /resume/resume.pdf .
-RUN CGO_ENABLED=0 GOOS=linux GOARCH=arm64 go build -ldflags="-w -s" -o /go/bin/resume main.go
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags="-w -s" -o /go/bin/resume main.go
 
 FROM scratch
 COPY --from=server /go/bin/resume /usr/local/bin/resume
