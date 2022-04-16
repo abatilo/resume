@@ -44,49 +44,6 @@ spec:
       app: resume
 ---
 apiVersion: "traefik.containo.us/v1alpha1"
-kind: "Middleware"
-metadata:
-  name: resume
-spec:
-  headers:
-    forceSTSHeader: true
-    stsSeconds: 31536000
-    stsIncludeSubdomains: true
-    stsPreload: true
-    referrerPolicy: "no-referrer-when-downgrade"
-    contentTypeNosniff: true
-    contentSecurityPolicy: "upgrade-insecure-requests"
-    browserXssFilter: true
-    customFrameOptionsValue: "SAMEORIGIN"
-    customResponseHeaders:
-      "Permissions-Policy": "geolocation=(); midi=(); notifications=(); push=(); sync-xhr=(); microphone=(); camera=(); magnetometer=(); gyroscope=(); speaker=(self); vibrate=(); fullscreen=(self); payment=();"
----
-apiVersion: traefik.containo.us/v1alpha1
-kind: Middleware
-metadata:
-  name: resume-http-to-https
-spec:
-  redirectScheme:
-    scheme: https
-    permanent: true
----
-apiVersion: "traefik.containo.us/v1alpha1"
-kind: "IngressRoute"
-metadata:
-  name: resume
-spec:
-  entryPoints: ["web"]
-  routes:
-    - match: "Host(`aaronbatilo.dev`, `www.aaronbatilo.dev`) && Path(`/resume`, `/resume.pdf`)"
-      kind: "Rule"
-      middlewares:
-        - name: resume-http-to-https
-        - name: resume
-      services:
-        - name: resume
-          port: 80
----
-apiVersion: "traefik.containo.us/v1alpha1"
 kind: "IngressRoute"
 metadata:
   name: resume-secure
@@ -96,7 +53,8 @@ spec:
     - match: "Host(`aaronbatilo.dev`, `www.aaronbatilo.dev`) && Path(`/resume`, `/resume.pdf`)"
       kind: "Rule"
       middlewares:
-        - name: resume
+        - name: security-headers
+          namespace: traefik
       services:
         - name: resume
           port: 80
