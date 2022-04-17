@@ -20,10 +20,6 @@ spec:
           image: ghcr.io/abatilo/resume:DOCKER_TAG
           ports:
             - containerPort: 80
-          resources:
-            requests:
-              cpu: 100m
-              memory: 128Mi
 ---
 apiVersion: v1
 kind: Service
