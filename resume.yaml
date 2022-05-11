@@ -43,12 +43,27 @@ spec:
     matchLabels:
       app: resume
 ---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: resume
+spec:
+  dnsNames:
+    - aaronbatilo.dev
+    - www.aaronbatilo.dev
+  issuerRef:
+    name: letsencrypt
+    kind: ClusterIssuer
+  secretName: resume-cert
+---
 apiVersion: "traefik.containo.us/v1alpha1"
 kind: "IngressRoute"
 metadata:
   name: resume-secure
 spec:
   entryPoints: ["websecure"]
+  tls:
+    secretName: resume-cert
   routes:
     - match: "Host(`aaronbatilo.dev`, `www.aaronbatilo.dev`) && Path(`/resume`, `/resume.pdf`)"
       kind: "Rule"
