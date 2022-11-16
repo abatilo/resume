@@ -48,8 +48,8 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: resume
-  minReplicas: 2
-  maxReplicas: 10
+  minReplicas: 1
+  maxReplicas: 5
   metrics:
   - type: Resource
     resource:
@@ -69,16 +69,6 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 80
----
-apiVersion: policy/v1beta1
-kind: PodDisruptionBudget
-metadata:
-  name: resume
-spec:
-  maxUnavailable: 1
-  selector:
-    matchLabels:
-      app: resume
 ---
 apiVersion: cert-manager.io/v1
 kind: Certificate
