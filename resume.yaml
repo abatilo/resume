@@ -45,6 +45,7 @@ metadata:
   name: resume
 spec:
   host: aaronbatilo.dev
+  scaledownPeriod: 120
   scaleTargetRef:
     deployment: resume
     service: resume
