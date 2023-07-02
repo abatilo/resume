@@ -95,9 +95,7 @@ kind: "IngressRoute"
 metadata:
   name: resume
 spec:
-  entryPoints: ["websecure"]
-  tls:
-    secretName: resume-cert
+  entryPoints: ["web"]
   routes:
     - match: "Host(`aaronbatilo.dev`, `www.aaronbatilo.dev`) && Path(`/resume`, `/resume.pdf`)"
       kind: "Rule"
