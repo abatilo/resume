@@ -10,7 +10,7 @@ var resume []byte
 
 func main() {
 	http.ListenAndServe(":80", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		w.Header().Set("Cache-Control", "public, max-age=604800")
+		w.Header().Set("Cache-Control", "public, max-age=172800")
 		w.Header().Set("Content-Type", "application/pdf")
 		w.Header().Set("Content-Disposition", "inline; filename=\"resume.pdf\"")
 		w.Header().Set("Content-Transfer-Encoding", "binary")
