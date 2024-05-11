@@ -24,7 +24,7 @@ jobs:
           check-latest: true
           cache-dependency-path: "**/*.sum"
       - run: |
-          touch resume.pdf
+          echo "Built from ${{ github.repository }}" > resume.pdf
           GOOS=darwin GOARCH=arm64 go build -o resume-darwin-arm64 main.go
           GOOS=linux GOARCH=amd64 go build -o resume-linux-amd64 main.go
       - uses: actions/upload-artifact@v4
